@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# EECS 2031 - Assignment 2
+# Filename: icount
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca        
+# Login ID: lindan4
+
+
+echo -n "Enter the file name: "
+read fileName
+
+if test ! -f $fileName
+then
+	echo -n "File '$fileName' does not exist."
+else
+	if test -r $fileName
+	then
+	#Start
+		echo -n "Count lines, words, characters or all three (l, m, c, a)? "
+		read countCommand
+		
+		while test "$countCommand" != "l" && test "$countCommand" != "L" && test "$countCommand" != "c" && test "$countCommand" != "C" && test "$countCommand" != "m" && test "$countCommand" != "M" && test "$countCommand" != "a" && test "$countCommand" != "A"
+		do
+			echo "Invalid option"
+			echo -n "Count lines, words, characters or all three (l, m, c, a)? "
+			read countCommand
+		done
+		
+		
+		fileLines="`wc -l $fileName | grep -o '[0-9]*'`"
+		fileWords="`wc -w $fileName | grep -o '[0-9]*'`"
+		fileChars="`wc -m $fileName | grep -o '[0-9]*'`"
+	
+		
+			if test "$countCommand" = "l" || test "$countCommand" = "L"
+			then
+				echo "File '$fileName' contains $fileLines lines."
+			elif test "$countCommand" = "m" || test "$countCommand" = "M"
+			then
+					echo "File '$fileName' contains $fileWords words"
+			elif test "$countCommand" = "c" || test "$countCommand" = "C"
+			then
+					echo "File '$fileName' contains $fileChars characters."
+			elif test "$countCommand" = "A" || test "$countCommand" = "A"
+			then
+					echo "File '$fileName' contains $fileLines lines, $fileWords words, $fileChars characters."
+			else
+					echo -n ""
+			fi
+		
+	#Stop
+	else
+		echo "File '$fileName' is not readable."
+	fi
+fi
+

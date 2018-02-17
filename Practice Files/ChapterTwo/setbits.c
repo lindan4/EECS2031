@@ -1,0 +1,110 @@
+
+
+#include <stdio.h>
+
+#define TWO 2
+
+
+int setbits(int x, int p, int n, int y);
+
+int toPower(int a, int b);
+
+int main()
+{
+	int c, d, e, f;
+	
+	printf("Enter number : ");
+	scanf("%d", &c);
+	
+	printf("\nEnter position p of x: ");
+	scanf("%d", &d);
+	
+	printf("\nEnter n: ");
+	scanf("%d", &e);
+	
+	printf("\nEnter other number y: ");
+	scanf("%d", &f);
+	
+	putchar('\n');
+	
+	int hope = setbits(c, d, e, f);
+	printf("Result: %d", hope);
+	
+	return 0;
+}
+
+//n bits
+//bit position p
+int setbits(int x, int p, int n, int y)
+{
+	int i, bitsOfYAndX, extractRightY, pPosition, bitsToFilterX, extractLeftX, xOfClearedBits, xFinal;
+	
+	//may have to change the positioning later on, as well as this logic
+	if (n == 0 || (x == 0 && y == 0))
+	{
+		return x;
+	}
+	else
+	{
+		//Get bits to filter out rightmost n bits of y
+		bitsOfYAndX = toPower(TWO, n) - 1;
+		//printf("Bits of y and x: %d\n", bitsOfYAndX);
+		
+		//Filter out other bits from y to return the n bits 
+		extractRightY = y & bitsOfYAndX;
+		//printf("Extract right y: %d\n", extractRightY);
+
+		
+		//Get to the position of x
+		//pPosition = toPower(TWO, p - 1);
+		//printf("pPosition: %d\n", pPosition);
+		
+		bitsToFilterX = bitsOfYAndX << ((p + 1) - n);
+		
+		xOfClearedBits = x & ~bitsToFilterX;
+		
+		xFinal = xOfClearedBits | extractRightY;
+
+		
+		/*
+		//Move bits of y to match position
+		extractRightY = (extractRightY << (p - pPosition));
+		printf("Extract right y: %d\n", extractRightY);
+
+		
+		//Shift the n bits to filter out to position
+		bitsToFilterX = bitsOfYAndX << (p - pPosition);
+		
+		//Clear dem bits
+		xOfClearedBits = x && ~bitsToFilterX;
+		
+		//Replade dem bits
+		xFinal = xOfClearedBits | extractRightY;
+		
+		//Get bits from x
+		extractLeftX = pPosition & bitsToFilterX;
+		
+		*/
+		return xFinal;
+		
+	}
+	
+	
+	
+}
+
+int toPower(int a, int b)
+{
+	if (b == 0)
+	{
+		return 1;
+	}
+	else if (b < 0)
+	{
+		return (1 / a) * toPower(a, b + 1);
+	}
+	else
+	{
+		return a * toPower(a, b - 1);
+	}
+}

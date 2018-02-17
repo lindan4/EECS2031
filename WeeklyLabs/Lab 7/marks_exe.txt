@@ -1,0 +1,30 @@
+indigo 124 % cc markSol.c -o marks
+indigo 125 % marks
+Usage: marks [input_file] [output_file]
+indigo 126 % cat marks.in
+Yvonne Smith 90 85
+Amy Black 82 100
+William Green 100 74
+John White 90 80
+Annie Carr 65 100
+indigo 127 % marks marks.in marks.out
+indigo 128 % cat marks.out
+Yvonne Smith 90 85 87.5
+Amy Black 82 100 91.0
+William Green 100 74 87.0
+John White 90 80 85.0
+Annie Carr 65 100 82.5
+indigo 129 % marks marks2_in marks.out
+Can't open file marks2_in for reading.
+indigo 130 % chmod u-w marks.out
+indigo 131 % marks marks.in marks.out
+Can't open file marks.out for writing.
+indigo 132 % chmod u+w marks.out
+indigo 133 % marks marks.in marks.out
+indigo 134 % cat marks.out
+Yvonne Smith 90 85 87.5
+Amy Black 82 100 91.0
+William Green 100 74 87.0
+John White 90 80 85.0
+Annie Carr 65 100 82.5
+indigo 135 %

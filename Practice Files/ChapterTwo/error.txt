@@ -1,0 +1,5 @@
+squeeze.c:9:29: error: expected ',' or '...' before 'delete'
+squeeze.c:45:29: error: expected ',' or '...' before 'delete'
+squeeze.c: In function 'char* filter(char*, char)':
+squeeze.c:51:37: error: expected ';' before ')' token
+squeeze.c:53:21: error: expected primary-expression before ')' token

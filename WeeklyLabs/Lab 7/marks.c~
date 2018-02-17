@@ -1,0 +1,29 @@
+/***********************************
+* EECS 2031 - Lab 7		   
+* Filename: marks.c  	
+* Author: Last name, first name	    
+* Email: Your preferred email address	 	
+* Login ID: Your EECS login ID	
+************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+  /*****  YOU MAY ADD YOUR OWN FUNCTION(S) HERE.  *****/
+
+void main( int argc, char *argv[] )
+{
+
+
+  /*****************************************/
+  /***** ADD YOUR CODE BELOW THIS LINE *****/
+
+
+
+  /***** ADD YOUR CODE ABOVE THIS LINE *****/
+  /*****************************************/
+
+}  /* end main */
+
+

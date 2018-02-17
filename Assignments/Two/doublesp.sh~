@@ -1,0 +1,46 @@
+#!/bin/sh
+
+echo -n "Enter input file name: "
+read inputFileName
+
+if test -f $inputFileName
+then
+	if test -r $inputFileName
+	then
+		
+		echo -n "Enter output file name: "
+		read outputFileName
+	
+		if test -f $outputFileName
+		then
+			if test -w $outputFileName
+			then
+				echo "File $outputFileName exists."
+				echo -n "Append to it (y/n)? "
+				read appendCmd
+				if [ "$appendCmd" == "y" ] || [ "$appendCmd" == "Y" ]
+				then
+					while read -r singLine 
+					do
+						s=$s"$singLine \n\n"
+						done <"$inputFileName"
+						echo -e "$s" >> "$outputFileName"
+				elif [ "$appendCmd" == "n" ] || [ "$appendCmd" == "N" ]
+				then
+					echo -n ""
+				else
+					echo "Invalid command."
+				fi
+			else
+				echo "File '$outputFileName' is not writable."
+			fi
+		else
+		#If the output file does not exist then don't create one
+		echo "File '$outputFileName' does not exist."
+		fi
+	else
+		echo "File '$inputFileName' is not readable."
+	fi
+else
+	echo "File '$inputFileName' does not exist."
+fi

@@ -1,0 +1,43 @@
+#!/bin/sh
+
+if test $# -eq 3
+then
+  
+  operand1="`echo $1 | grep -o '[0-9]*'`"
+  operator="$2"
+  operand2="`echo $3 | grep -o '[0-9]*'`"
+  
+  if test "$operand1" = "" || test "$operand2" = "" || test $operand2 -eq 0
+  then
+    echo "One or more invalid operands."
+    exit 1
+  fi
+  
+  
+  if test "$operator" = "+"
+  then 
+    echo "`expr $operand1 + $operand2`"
+  elif test "$operator" = "-"
+  then
+    echo "`expr $operand1 - $operand2`"
+  elif test "$operator" = "x"
+  then
+    echo "`expr $operand1 \* $operand2`"
+  elif test "$operator" = "/"
+  then
+    echo "`expr $operand1 / $operand2`"
+  elif test "$operator" = "%"
+  then
+    echo "`expr $operand1 % $operand2`"
+  else
+    echo "Invalid operator."
+  fi
+  
+  
+  #echo "$operand1 $operator $operand2"
+
+  
+
+else
+  echo "Usage: calc [operand_1] [operator] [operand_2]"
+fi

@@ -1,0 +1,46 @@
+#!/bin/sh
+echo -n 'Enter the file name: '
+read fileName
+
+if test ! -f $fileName
+then
+	echo 'File '$fileName' does not exist.'
+else
+	if test -r $fileName
+	then
+		#Start
+		echo -n 'Enter the word to search for: '
+		read wordToLookFor
+	
+		#Use quotes if you want to retain the format of the command output
+		outcomeNoCase=$(grep -i $wordToLookFor $fileName)
+		outcomeCase=$(grep $wordToLookFor $fileName)
+	
+		echo -n 'Case-sensitive (y/n)? '
+		read isSensitive
+	
+		if [ "$isSensitive" == 'y' ] || [ "$isSensitive" == 'Y' ]
+		then
+			if test "$outcomeCase" = ""
+			then
+				echo "Word '$wordToLookFor' not found."
+			else
+				echo "$outcomeCase"
+			fi
+		elif [ "$isSensitive" == 'n' ] || [ "$isSensitive" == 'N' ]
+		then
+			if test "$outcomeNoCase" = ""
+			then
+				echo "Word '$wordToLookFor' not found."
+			else
+				echo "$outcomeNoCase"
+			fi
+		else
+			echo "Invalid command"
+		fi
+		#Stop
+	else
+		echo "File '$fileName' is not readable."
+	fi
+
+fi

@@ -1,0 +1,49 @@
+#!/bin/sh
+echo -n "Enter the file name: "
+read fileName
+
+if test ! -f $fileName
+then
+	echo -n "File '$fileName' does not exist."
+else
+	if test -r $fileName
+	then
+	#Start
+		echo -n "Count lines, words, characters or all three (l, m, c, a)? "
+		read countCommand
+		
+		while [ "$countCommand" != "l" ] && [ "$countCommand" != "L" ] && [ "$countCommand" != "c" ] && [ "$countCommand" != "C" ] && [ "$countCommand" != "m" ] && [ "$countCommand" != "M" ] && [ "$countCommand" != "a" ] && [ "$countCommand" != "A" ]
+		do
+			echo "Invalid option"
+			echo -n "Count lines, words, characters or all three (l, m, c, a)? "
+			read countCommand
+		done
+		
+		
+		fileLines=$(wc -l $fileName | grep -o '[0-9]*')
+		fileWords=$(wc -w $fileName | grep -o '[0-9]*')
+		fileChars=$(wc -m $fileName | grep -o '[0-9]*')
+	
+		
+			if [ "$countCommand" == "l" ] || [ "$countCommand" == "L" ]
+			then
+				echo "File '$fileName' contains $fileLines lines."
+			elif [ "$countCommand" == "m" ] || [ "$countCommand" == "M" ]
+			then
+					echo "File '$fileName' contains $fileWords words"
+			elif [ "$countCommand" == "c" ] || [ "$countCommand" == "C" ]
+			then
+					echo "File '$fileName' contains $fileChars characters."
+			elif [ "$countCommand" == "A" ] || [ "$countCommand" == "A" ]
+			then
+					echo "File '$fileName' contains $fileLines lines, $fileWords words, and $fileChars characters."
+			else
+					echo -n ""
+			fi
+		
+	#Stop
+	else
+		echo "File '$fileName' is not readable."
+	fi
+fi
+

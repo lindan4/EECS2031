@@ -1,0 +1,15 @@
+indigo 580 % calc
+Usage: calc [operand_1] [operator] [operand_2]
+indigo 581 % calc 12 + 10
+22
+indigo 582 % calc 15 - 10
+5
+indigo 583 % calc 20 - 55
+-35
+indigo 584 % calc 20 / 7
+2
+indigo 585 % calc 20 % 7
+6
+indigo 586 % calc 50 x 11
+550
+

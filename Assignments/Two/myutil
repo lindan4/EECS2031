@@ -1,0 +1,77 @@
+#!/bin/sh
+
+# EECS 2031 - Assignment 2
+# Filename: myutil
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca        
+# Login ID: lindan4
+
+
+
+echo "=======  MENU  ======="
+echo "s: Search for a word"
+echo "c: Count lines, words, characters"
+echo "f: List all ordinary files in the directory"
+echo "v: View content of file"
+echo "d: Double spacing"
+echo "a: Add line numbers"
+echo "l: Display specified lines in file"
+echo "h: Help /  Display this menu"
+echo "r: Clear the screen"
+echo "q: Quit the program"
+
+inCmd="s"
+
+while test "$inCmd" != "q" || test "$inCmd" != "Q"
+do
+	echo -ne "\nEnter command: "
+	read inCmd
+	
+	if test "$inCmd" = "s" || test "$inCmd" = "S"
+	then
+		sh ./isearch
+	elif test "$inCmd" = "c" || test "$inCmd" = "C"
+	then
+		sh ./icount
+	elif test "$inCmd" = "f" || test "$inCmd" = "F"
+	then
+		sh ./allfiles
+	elif test "$inCmd" = "v" || test "$inCmd" = "V"
+	then
+		sh ./fdisplay
+	elif test "$inCmd" = "d" || test "$inCmd" = "D"
+	then
+		sh ./doublesp
+	elif test "$inCmd" = "a" || test "$inCmd" = "A"
+	then
+		sh ./addlines
+	elif test "$inCmd" = "l" || test "$inCmd" = "L"
+	then
+		sh ./prtlines
+	elif test "$inCmd" = "h" || test "$inCmd" = "H"
+	then
+		echo "=======  MENU  ======="
+		echo "s: Search for a word"
+		echo "c: Count lines, words, characters"
+		echo "f: List all ordinary files in the directory"
+		echo "v: View content of file"
+		echo "d: Double spacing"
+		echo "a: Add line numbers"
+		echo "l: Display specified lines in file"
+		echo "h: Help /  Display this menu"
+		echo "r: Clear the screen"
+		echo "q: Quit the program"
+	elif test "$inCmd" = "r" || test "$inCmd" = "R"
+	then
+		clear
+	elif test "$inCmd" = "q" || test "$inCmd" = "Q"
+	then
+		exit 1
+	else
+		echo "Invalid command"
+	fi
+	
+	
+	
+	
+done

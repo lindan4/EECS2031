@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# EECS 2031 - Assignment 2
+# Filename: allfiles
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca        
+# Login ID: lindan4
+
+
+for file in *
+do
+	if test -f "$file"
+	then
+		echo "$file"
+	fi
+done

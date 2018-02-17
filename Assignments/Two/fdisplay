@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# EECS 2031 - Assignment 2
+# Filename: fdisplay
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca        
+# Login ID: lindan4
+
+
+echo -n "Enter the file name: "
+read fileName
+
+if test ! -f $fileName
+then
+	echo "File '$fileName' does not exist."
+else
+	if test -r $fileName
+	then
+	#Start
+		echo -n "Enter option (e, f, p, l): "
+		read optionCmd
+		
+		while test "$optionCmd" != "e" && test "$optionCmd" != "E" && test "$optionCmd" != "f" && test "$optionCmd" != "F" && test "$optionCmd" != "p" && test "$optionCmd" != "P" && test "$optionCmd" != "l" && test "$optionCmd" != "L"
+		do
+			echo "Invalid option"
+			echo -n "Enter option (e, f, p, l): "
+			read optionCmd
+		done
+	
+		if test "$optionCmd" = "e" || test "$optionCmd" = "E"
+		then
+			cat "$fileName"
+		elif test "$optionCmd" = "p" || test "$optionCmd" = "P"
+		then
+			more "$fileName"
+		elif test "$optionCmd" = "f" || test "$optionCmd" = "F"
+		then
+			head "$fileName"
+		elif test "$optionCmd" = "l" || test "$optionCmd" = "L"
+		then
+			tail "$fileName"
+		else
+			echo "Invalid option."
+		fi
+		
+		
+	#Stop
+	else
+		echo "File '$fileName' is not readable."
+	fi
+fi

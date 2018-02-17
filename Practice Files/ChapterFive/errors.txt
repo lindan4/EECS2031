@@ -1,0 +1,2 @@
+strcatPointer.c: In function 'int main()':
+strcatPointer.c:40:15: error: cannot convert 'char**' to 'char*' for argument '1' to 'void strcat(char*, char*)'

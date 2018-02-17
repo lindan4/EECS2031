@@ -1,0 +1,63 @@
+#!/bin/sh
+
+# EECS 2031 - Assignment 2
+# Filename: isearch
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca        
+# Login ID: lindan4
+
+
+
+
+echo -n 'Enter the file name: '
+read fileName
+
+if test ! -f $fileName
+then
+	echo "File '$fileName' does not exist."
+else
+	if test -r $fileName
+	then
+		#Start
+		echo -n "Enter the word to search for: "
+		read wordToLookFor
+	
+		#Use quotes if you want to retain the format of the command output
+		outcomeNoCase="`grep -i $wordToLookFor $fileName`"
+		outcomeCase="`grep $wordToLookFor $fileName`"
+	
+		echo -n 'Case-sensitive (y/n)? '
+		read isSensitive
+   
+   while test "$isSensitive" != "y" && test "$isSensitive" != "Y" && test "$isSensitive" != "n" && test "$isSensitive" != "N"
+   do
+     echo "Invalid command"
+     echo -n 'Case-sensitive (y/n)? '
+	   read isSensitive
+   done
+	
+		if test "$isSensitive" = "y" ||  test "$isSensitive" = "Y"
+		then
+			if test "$outcomeCase" = ""
+			then
+				echo "Word '$wordToLookFor' not found."
+			else
+				echo "$outcomeCase"
+			fi
+		elif test "$isSensitive" = "n" || test "$isSensitive" = "N"
+		then
+			if test "$outcomeNoCase" = ""
+			then
+				echo "Word '$wordToLookFor' not found."
+			else
+				echo "$outcomeNoCase"
+			fi
+		else
+			echo "Invalid command"
+		fi
+		#Stop
+	else
+		echo "File '$fileName' is not readable."
+	fi
+
+fi

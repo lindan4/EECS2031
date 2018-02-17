@@ -1,0 +1,59 @@
+#!/bin/sh
+
+echo -n "Enter the file name: "
+read fileName
+
+if test ! -f $fileName
+then
+	echo "File '$fileName' does not exist"
+else
+	if test -r $fileName
+	then
+		
+		wcL=$(wc -l $fileName | grep -o '[0-9]*')
+		echo "File '$fileName' has $wcL lines."
+		echo -n "From line: "
+		read startLine
+	
+		woTabs=$(expand $fileName)
+		#echo "$woTabs"
+	
+		#Fix up numbers and errors
+		declare -i start=$startLine
+
+		while [ $start -lt 1 ] || [ $start -gt $wordCount ]
+		do
+			echo "Invalid Line number"
+			echo -n "From line: "
+			read startLine
+			start=$startLine
+		done
+		declare -i wordCount=$wcL
+		
+		echo -n "To line: "
+		read endLine
+		
+		
+		
+		while [ $start -lt 1 ] || [ $start -gt $wordCount ] || [ $start -gt $end ]
+		do
+			echo "Invalid line number"
+			echo -n "To line: "
+			read endLine
+		done
+		
+		declare -i end=$endLine
+		
+		while [ $start -le $end ]
+			do
+				singleLine=$(echo "$woTabs" | sed -n "$start"p)
+				s=$s"$start: $singleLine \n"
+				start=start+1
+			done
+			echo -e "$s"
+		fi
+		fi
+	else
+		echo "File '$fileName' is not readable."
+	fi
+fi

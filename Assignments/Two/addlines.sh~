@@ -1,0 +1,64 @@
+#!/bin/sh
+  
+#Issue: columns are not being properly aligned
+echo -n "Enter input file name: "
+read inputFileName
+  
+if test ! -f $inputFileName
+then
+      echo "File '$inputFileName'does not exist"
+else
+    if test -r $inputFileName
+    then
+        #Start
+        woTabs=$(expand $inputFileName)
+
+        echo -n "Enter output file name: "
+        read outputFileName
+     
+     
+        if test -f $outputFileName
+        then
+            if test -w $outputFileName
+            then
+              
+                echo -n "File $outputFileName exists. Append to it (y/n)? "
+                read outputCmd
+                if [ "$outputCmd" == "y" ] || [ "$outputCmd" == "Y" ]
+                then
+                    declare -i lineNo=1;
+                    wcL=$(wc -l $inputFileName | grep -o '[0-9]*')
+
+                    declare -i lineCount=$wcL
+                    
+                    while [ $lineNo -le $lineCount ]
+                    do
+              
+                        singleLine=$(echo "$woTabs" | sed -n "$lineNo"p)
+                        s=$s"$lineNo: $singleLine \n"
+                        lineNo=lineNo+1
+                    done
+              
+                    echo -e "$s" >> $outputFileName
+              
+                elif [ "$outputCmd" == "n" ] || [ "$outputCmd" == "N" ]
+                then
+                    echo -n ""
+                else
+                    echo "Invalid command."
+                fi
+            else
+                echo "File '$outputFileName' not writable."
+            fi
+              
+          
+        else
+            echo "File '$outputFileName'does not exist"
+        fi
+    #Stop
+    else
+        echo "File '$inputFileName' not readable."
+    fi
+     
+     
+fi

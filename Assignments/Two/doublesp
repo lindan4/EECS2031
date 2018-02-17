@@ -1,0 +1,61 @@
+#!/bin/sh
+
+# EECS 2031 - Assignment 2
+# Filename: doublesp
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca        
+# Login ID: lindan4
+
+
+echo -n "Enter input file name: "
+read inputFileName
+
+if test -f $inputFileName
+then
+	if test -r $inputFileName
+	then
+		
+		echo -n "Enter output file name: "
+		read outputFileName
+	
+		if test -f $outputFileName
+		then
+			if test -w $outputFileName
+			then
+				echo "File '$outputFileName' exists."
+				echo -n "Append to it (y/n)? "
+				read appendCmd
+        
+        while test "$appendCmd" != "y" && test "$appendCmd" != "Y" && test "$appendCmd" != "n" && test "$appendCmd" != "N"
+        do
+          echo "Invalid command"
+          echo -n "Append to it (y/n)? "
+				  read appendCmd
+        done
+        
+				if test "$appendCmd" = "y" || test "$appendCmd" = "Y"
+				then
+					while read -r singLine 
+					do
+						s=$s"$singLine \n\n"
+						done <"$inputFileName"
+						echo -e "$s" >> "$outputFileName"
+				elif test "$appendCmd" = "n" || test "$appendCmd" = "N"
+				then
+					echo -n ""
+				else
+					echo "Invalid command."
+				fi
+			else
+				echo "File '$outputFileName' is not writable."
+			fi
+		else
+		#If the output file does not exist then don't create one
+		echo "File '$outputFileName' does not exist."
+		fi
+	else
+		echo "File '$inputFileName' is not readable."
+	fi
+else
+	echo "File '$inputFileName' does not exist."
+fi

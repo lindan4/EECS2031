@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+#define MAX_SIZE 100
+
+main() {
+
+   char my_strg[ MAX_SIZE ];   /* to store the octal number in the form of an array of char */
+   int my_int;
+
+   /********** Fill in your code here. **********/
+
+   printf( "%10d\n", my_int );  /* output the decimal integer */
+}

@@ -1,0 +1,78 @@
+#!/bin/sh
+
+	
+# EECS 2031 - Assignment 2
+# Filename: addlines
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca        
+# Login ID: lindan4
+
+
+echo -n "Enter input file name: "
+read inputFileName
+  
+if test ! -f $inputFileName
+then
+      echo "File '$inputFileName' does not exist."
+else
+    if test -r $inputFileName
+    then
+        #Start
+
+        echo -n "Enter output file name: "
+        read outputFileName
+     
+     
+        if test -f $outputFileName
+        then
+            if test -w $outputFileName
+            then
+              
+                echo -en "File '$outputFileName' exists.\nAppend to it (y/n)? "
+                read outputCmd
+                
+                while test "$outputCmd" != "y" && test "$outputCmd" != "Y" && test "$outputCmd" != "n" && test "$outputCmd" != "N"
+                do
+                    echo "Invalid command"
+                    echo -n "Append to it (y/n)? "
+				            read outputCmd
+                done
+                
+                if test "$outputCmd" = "y" || test "$outputCmd" = "Y"
+                then
+                    lineNo=1
+                    wcL="`wc -l $inputFileName | grep -o '[0-9]*'`"
+
+                    lineCount=$wcL
+                    
+                    while read -r line 
+                    do
+              
+                        singleLine="$line"
+                        s=$s"$lineNo: $singleLine \n"
+                        lineNo=`expr $lineNo + 1`
+                    done <"$inputFileName"
+              
+                    echo -e "$s" >> $outputFileName
+              
+                elif test "$outputCmd" = "n" || test "$outputCmd" = "N"
+                then
+                    echo -n ""
+                else
+                    echo "Invalid command."
+                fi
+            else
+                echo "File '$outputFileName' not writable."
+            fi
+              
+          
+        else
+            echo "File '$outputFileName' does not exist"
+        fi
+    #Stop
+    else
+        echo "File '$inputFileName' not readable."
+    fi
+     
+     
+fi

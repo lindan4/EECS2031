@@ -1,0 +1,19 @@
+indigo 213 % mmavg
+Usage: mmavg int1 int2 int3 ...
+indigo 214 % mmavg 1 2 3 4
+4 1 2.50
+indigo 216 % mmavg -1 -2 -3 -4
+-1 -4 -2.50
+indigo 217 % mmavg 105 12 -64 2078 -2 786 0 -10 -9999 1
+2078 -9999 -709.30
+indigo 218 % mmavg 999
+999 999 999.00
+indigo 219 % mmavg 0
+0 0 0.00
+indigo 220 % mmavg 100 200
+200 100 150.00
+indigo 221 % mmavg 200 -100
+200 -100 50.00
+indigo 222 % mmavg 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+20 1 10.50
+

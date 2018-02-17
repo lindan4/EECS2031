@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+#define MAX_SIZE 1000
+#define MAX_STUDENTS 20
+
+struct student
+{
+	char id[MAX_SIZE];
+	char name[MAX_SIZE];
+	char sex;
+	double quizOneScore;
+	double quizTwoScore;
+	double midtermScore;
+	double finalScore;
+	double totalScore;
+	
+};
+
+int main(void)
+{
+	
+	int i;
+	
+	return 0;
+}

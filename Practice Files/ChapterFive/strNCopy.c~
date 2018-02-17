@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 1000
+
+void strncopy(char *s, char *t, int n);
+
+//Rewrite strncopy, strncat, and strncmp
+int main(void)
+{
+	int c, d, n, position;
+	char *a, *b;
+	
+	a = (char *) malloc(MAX_SIZE * sizeof(char));
+	b = (char *) malloc(MAX_SIZE * sizeof(char));
+	
+	printf("Enter string a: ");
+	position = 0;
+	
+	while (((c = getchar()) != EOF) && (c != '\n'))
+	{
+		*(a + position) = c;
+		position = position + 1;
+	}
+	*(a + position) = '\0';
+	
+	printf("\nEnter string b: ");
+	position = 0;
+	
+	while (((d = getchar()) != EOF) && (d != '\n'))
+	{
+		*(b + position) = d;
+		position = position + 1;
+	}
+	*(b + position) = '\0';
+	
+	printf("Specify first n amounts of characters to use: ");
+	scanf("%d", &n);
+	
+	
+	return 0;
+}
+
+//copy n characters from t to s
+void strncopy(char *s, char *t, int n)
+{
+	
+}

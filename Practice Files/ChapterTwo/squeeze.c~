@@ -1,0 +1,62 @@
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_LENGTH 10000
+
+
+char* filter(char[] s, char delete);
+
+int main()
+{
+	#define ONE 1
+	
+	int c, d;
+	int i, j = 0;
+	
+	char line[MAX_LENGTH];
+	char filterCharacter;
+	
+	
+	printf("Enter a line of characters:\n");
+	
+	while (((c = getchar()) != EOF) && (c != '\n'))
+	{
+		line[i] = c;
+		++i;
+	}
+	line[++i] = '\0';
+	
+	printf("\nEnter a single character to filter out from the sentence: ");
+	
+	while (((d = getchar()) != EOF) && j < ONE)
+	{
+		filterCharacter = d;
+		j++;
+	}
+	
+	//printf("%d characters", i);
+	
+	return 0;
+}
+
+//Can't return arrays, but I can return a pointer to an array
+char* filter(char[] s, char delete)
+{
+	static char filteredArray[MAX_LENGTH];
+	
+	int k;
+	int n = 0;
+	for (k = 0; s[k] != '\0'; k = k + 1)
+	{
+		if (s[k] != delete)
+		{
+			filteredArray[n] = s[k];
+			n = n + 1;
+		}
+	}
+	filteredArray[++n] = '\0';
+	
+	return filteredArray;
+}

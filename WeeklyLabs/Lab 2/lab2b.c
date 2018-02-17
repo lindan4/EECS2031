@@ -1,0 +1,92 @@
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void quickSort(int s[], int arrayLength);
+int compareInteger(const void *a , const void *b);
+
+int main()
+{
+	const int MAX_LENGTH = 100;
+	
+	int array[100] = { 0 };
+	int number;
+	int position = 0;
+	
+	printf("\nEnter the next array element>");
+	scanf("%d", &number);
+	
+	while (number != 0)
+	{
+		array[position] = number;
+		position = position + 1;
+		printf("\nEnter the next array element>");
+		scanf("%d", &number);
+	}
+	array[position] = 0;
+	position = position + 1;
+	
+	//qsort(array to be sorted, size of array, size of type in bytes, comparator function)
+	qsort(array, position, sizeof(int), compareInteger);
+	
+	printf("\n%d\t%d\n", array[position - 1], array[0]);
+	/*
+	for (int i = 0; i < position; i = i + 1)
+	{
+		printf("%d ", array[i]);
+	}
+	*/
+	
+	return 0;
+
+}
+
+int compareInteger(const void *a_ , const void *b_)
+{
+	int a = *(const int *) a_;
+	int b = *(const int *) b_;
+	
+	return (a - b);
+	
+}
+
+void quickSort(int s[], int arrayLength)
+{
+	/*	
+	int pivot = s[arrayLength - 1];
+	int wall, currentNumberPosition = 0;
+	int currentNumber = s[currentNumberPosition];
+	
+	while (currentNumberPosition < arrayLength)
+	{
+		if (currentNumber < pivot)
+		{
+			//Increment the wall and put element to left of wall
+			wall = wall + 1;
+			int hold = s[wall - 1];
+			s[wall - 1] = currentNumber;
+			s[currentNumberPosition] = hold;
+			currentNumberPosition = wall;
+			
+			
+		}
+		else if (currentNumber == pivot)
+		{
+			int startElement = s[wall];
+			s[wall] = pivot;
+			pivot = startElement;
+			currentNumberPosition = wall;
+		}
+		else
+		{
+			currentNumberPosition = currentNumberPosition + 1;
+			currentNumber = s[currentNumberPosition];
+		}
+		
+	}
+	
+	*/
+	
+	
+}

@@ -1,0 +1,41 @@
+/***********************************
+* EECS 2031 - Lab 6		   
+* Filename: mmavg.c	  	
+* Author: Last name, first name	    
+* Email: Your preferred email address	 	
+* Login ID: Your EECS login ID	
+************************************/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+  /*****  YOU MAY ADD YOUR OWN FUNCTION(S) HERE.  *****/
+
+
+
+/* Function main()
+   Input: a set of integers as command-line arguments.
+   Output: the maximum, minimum and average of the above set displayed on the standard output.
+ */
+
+main( int argc, char *argv[] )
+{
+  int max, min;
+  float avg;
+
+  /*****************************************/
+  /***** ADD YOUR CODE BELOW THIS LINE *****/
+
+
+
+
+  /***** ADD YOUR CODE ABOVE THIS LINE *****/
+  /*****************************************/
+
+  /**** DO NOT ADD OR CHANGE ANYTHING BELOW THIS LINE ****/
+
+  printf( "%d %d %.2f\n", max, min, avg );
+}
+

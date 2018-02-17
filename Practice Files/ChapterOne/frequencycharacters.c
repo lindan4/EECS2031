@@ -1,0 +1,56 @@
+
+
+#include <stdio.h>
+
+main()
+{
+	
+	#define ASTERISK '*'
+	#define ARRAY_SIZE 128
+	
+	//Problem: After recognizing letters, the program continues in an infinite loop 
+	//Solution: don't use sizeof()
+	int c, i, j;
+	
+	int letters[ARRAY_SIZE] = { 0 };
+	
+	printf("Enter characters: ");
+	
+	while (((c = getchar()) != EOF) && (c != '\n'))
+	{
+		letters[c] = letters[c] + 1;
+	}
+	
+	putchar('\n');
+	
+	for (i = 0; i < ARRAY_SIZE; i = i + 1)
+	{
+		if (letters[i] > 0)
+		{
+			
+			//printf("Gotcha\n");
+			
+			if (i == ' ')
+			{
+				printf("space");
+				putchar('\t');
+			}
+			else
+			{
+				putchar(i);
+				putchar('\t');
+			}
+			
+			
+			for (j = 0; j < letters[i]; j = j + 1)
+			{
+			
+				putchar(ASTERISK);
+			}
+			
+			putchar('\n');
+		}
+	}
+	
+	
+}

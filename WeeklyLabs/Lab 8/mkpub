@@ -1,0 +1,32 @@
+# EECS 2031 - Lab 8
+# Filename: mkpub
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca
+# Login ID: lindan4
+
+#!/bin/sh
+
+if test "$1" = ""
+then
+  echo "Usage: mkpub [file or directory name]"
+else
+  if test -f "$1"
+  then
+    chmod a+r "$1"
+    echo "File '$1' is now made public."
+  elif test -d "$1"
+  then
+    chmod a+rx "$1"
+    echo "Diectory '$1' is now made public."
+  else
+    if test ! -d "$1"
+    then
+      echo "Directory '$1' does not exist."
+    fi
+    
+    if test ! -f "$1"
+    then
+      echo "File '$1' does not exist."
+    fi
+  fi
+fi

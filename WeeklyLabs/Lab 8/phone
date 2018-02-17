@@ -1,0 +1,14 @@
+#EECS 2031 - Lab 8
+#Filename: phone
+#Author: Thillanayagam, Lindan
+#Email: lindan4@my.yorku.ca
+#Login ID: lindan4
+
+#!/bin/sh
+
+echo -n "Enter the name to search: "
+read searchFor
+
+results="`grep -i $searchFor phone_book.txt`"
+echo "$results"
+

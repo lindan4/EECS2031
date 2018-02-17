@@ -1,0 +1,30 @@
+
+
+#include <stdio.h>
+#include <limits.h>
+#include <float.h>
+
+int main()
+{
+	int unsignedMin = 0;
+
+	printf("Ranges:\n\n");
+	printf("Signed char: %d %d\n", CHAR_MIN, CHAR_MAX);
+	printf("Unsigned char: %d %u\n", unsignedMin, UCHAR_MAX);
+	printf("Signed short: %d %d\n", SHRT_MIN, SHRT_MAX);
+	printf("Unsigned short: %d %u\n", unsignedMin, USHRT_MAX);
+	printf("Signed int: %d %d\n", INT_MIN, INT_MAX);
+	//What????
+	printf("Unsigned int: %d %u\n", unsignedMin, UINT_MAX);
+	printf("Signed long: %d %d\n", LONG_MIN, LONG_MAX);
+	printf("Unsigned long: %d %u\n", unsignedMin, ULONG_MAX);
+	
+	//Floats and doubles
+	printf("Float: %f %f\n", FLT_MIN, FLT_MAX);
+	printf("Double: %lf %lf\n", DBL_MIN, DBL_MAX);
+	
+	printf("\nSize of types:\n\n");
+	
+	
+	return 0;
+}

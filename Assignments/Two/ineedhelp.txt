@@ -1,0 +1,72 @@
+1: Ray Szeto       (416) 564-6786	friend 
+2: alex johnson 	(416) 555-1234 	family doctor 
+3: Tom Podstawka   (647) 579-3854	dentist 
+4: Greg Ivan       (905) 789-6703	neighbour 
+5: Nikola Sandic   (647) 209-7932	friend from work 
+6: Tim Yu          (416) 570-9522	Jill's coach 
+7: Marvin Macalino (416) 570-0983	gym 
+8: Paul Jakubiak   (647) 097-9257	grocery store 
+9: Karim Khalil    (905) 346-6892	friend 
+10: Denis Malino    (416) 098-9259	chiropractor 
+11: Timothy Hawn    (647) 761-8906	hair dresser 
+12: GREGORY FISH    (416) 691-9818	Dynasty restaurant 
+13: PAUL Demers     (647) 123-0987	neighbour 
+14: Tara Rathbone  	(905) 976-1678	babysitter 
+15: ROB Oxley       (416) 723-8759	friend from university 
+16: Robert Hartzell (647) 190-8630	after-hour children clinic 
+17: Stephen Hawn    (416) 465-6758	repairman 
+18: Steve OXLEYRICH (416) 576-3669	post office 
+19: Brenda Caverly  (647) 575-5679	babysitter 
+20: Sean Zheng      (905) 469-1399	neighbour 
+21: Ryan ZHENG      (416) 678-2488	Lawrence supermaket 
+22: Alexander Smith (905) 555-9876 	home renovation contractor 
+23:  
+
+1: Ray Szeto       (416) 564-6786	friend 
+2: alex johnson 	(416) 555-1234 	family doctor 
+3: Tom Podstawka   (647) 579-3854	dentist 
+4: Greg Ivan       (905) 789-6703	neighbour 
+5: Nikola Sandic   (647) 209-7932	friend from work 
+6: Tim Yu          (416) 570-9522	Jill's coach 
+7: Marvin Macalino (416) 570-0983	gym 
+8: Paul Jakubiak   (647) 097-9257	grocery store 
+9: Karim Khalil    (905) 346-6892	friend 
+10: Denis Malino    (416) 098-9259	chiropractor 
+11: Timothy Hawn    (647) 761-8906	hair dresser 
+12: GREGORY FISH    (416) 691-9818	Dynasty restaurant 
+13: PAUL Demers     (647) 123-0987	neighbour 
+14: Tara Rathbone  	(905) 976-1678	babysitter 
+15: ROB Oxley       (416) 723-8759	friend from university 
+16: Robert Hartzell (647) 190-8630	after-hour children clinic 
+17: Stephen Hawn    (416) 465-6758	repairman 
+18: Steve OXLEYRICH (416) 576-3669	post office 
+19: Brenda Caverly  (647) 575-5679	babysitter 
+20: Sean Zheng      (905) 469-1399	neighbour 
+21: Ryan ZHENG      (416) 678-2488	Lawrence supermaket 
+22: Alexander Smith (905) 555-9876 	home renovation contractor 
+23:  
+
+1: Ray Szeto       (416) 564-6786	friend 
+2: alex johnson 	(416) 555-1234 	family doctor 
+3: Tom Podstawka   (647) 579-3854	dentist 
+4: Greg Ivan       (905) 789-6703	neighbour 
+5: Nikola Sandic   (647) 209-7932	friend from work 
+6: Tim Yu          (416) 570-9522	Jill's coach 
+7: Marvin Macalino (416) 570-0983	gym 
+8: Paul Jakubiak   (647) 097-9257	grocery store 
+9: Karim Khalil    (905) 346-6892	friend 
+10: Denis Malino    (416) 098-9259	chiropractor 
+11: Timothy Hawn    (647) 761-8906	hair dresser 
+12: GREGORY FISH    (416) 691-9818	Dynasty restaurant 
+13: PAUL Demers     (647) 123-0987	neighbour 
+14: Tara Rathbone  	(905) 976-1678	babysitter 
+15: ROB Oxley       (416) 723-8759	friend from university 
+16: Robert Hartzell (647) 190-8630	after-hour children clinic 
+17: Stephen Hawn    (416) 465-6758	repairman 
+18: Steve OXLEYRICH (416) 576-3669	post office 
+19: Brenda Caverly  (647) 575-5679	babysitter 
+20: Sean Zheng      (905) 469-1399	neighbour 
+21: Ryan ZHENG      (416) 678-2488	Lawrence supermaket 
+22: Alexander Smith (905) 555-9876 	home renovation contractor 
+23:  
+

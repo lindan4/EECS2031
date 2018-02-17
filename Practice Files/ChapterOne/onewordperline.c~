@@ -1,0 +1,30 @@
+
+
+#include <stdio.h>
+
+main()
+{
+	#define IN 1
+	#define OUT 0
+	
+	int c;
+	
+	
+	printf("Input line: ");
+	while ((c = getchar()) != EOF)
+	{
+		if (c == '\n' || c == '\t' || c == ' ')
+		{
+			printf("\n");
+			while((c = getchar() == ' '))
+			{
+			}
+			
+		}
+		else
+		{
+			putchar(c);
+		}
+		printf("Input line: ");
+	}
+}

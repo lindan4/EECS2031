@@ -1,0 +1,20 @@
+indigo 477 % a.out
+Capacity = 4
+Capacity = 8
+  0   5  10  15  20
+Capacity = 16
+  0   5  10  15  20  25  30  35  40
+Capacity = 32
+  0   5  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80
+  0   5  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85  90  95 100 105 110 115 120 125 130 135 140 145 150 155
+Capacity = 16
+  0   5  10  15  20  25  30
+Capacity = 8
+  0   5  10
+Capacity = 4
+  0
+
+printArray(): empty array.
+
+indigo 478 % 
+

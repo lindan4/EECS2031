@@ -1,0 +1,101 @@
+#!/bin/sh
+
+# EECS 2031 - Assignment 2
+# Filename: prtlines
+# Author: Thillanayagam, Lindan
+# Email: lindan4@my.yorku.ca
+# Login ID: lindan4
+
+
+
+echo -n "Enter the file name: "
+read fileName
+
+if test ! -f $fileName
+then
+	echo "File '$fileName' does not exist"
+else
+	if test -r $fileName
+	then
+
+		wcL="`cat $fileName | wc -l`"
+		echo "File '$fileName' has $wcL lines."
+		echo -n "From line: "
+		read startLine
+		verifyStart="`echo $startLine | grep -o '[0-9]*'`"
+
+		if test "$verifyStart" = ""
+		then
+			start=-2
+		else
+			start=$startLine
+		fi
+
+
+
+		wordCount=$wcL
+
+		while test $start -lt 1 || test $start -gt $wordCount
+		do
+			echo "Invalid line number"
+			echo -n "From line: "
+			read startLine
+			verifyStart="`echo $startLine | grep -o '[0-9]*'`"
+
+			if test "$verifyStart" = ""
+			then
+				start=-2
+			else
+				start=$startLine
+			fi
+		done
+
+		echo -n "To line: "
+		read endLine
+
+		verifyEnd="`echo $endLine | grep -o '[0-9]*'`"
+
+		if test "$verifyEnd" = ""
+		then
+			end=-2
+		else
+			end=$endLine
+		fi
+
+
+
+		while test $end -lt 1 || test $start -gt $wordCount || test $start -gt $end
+		do
+			echo "Invalid line number"
+			echo -n "To line: "
+			read endLine
+
+			verifyEnd="`echo $endLine | grep -o '[0-9]*'`"
+
+			if test "$verifyEnd" = ""
+			then
+				end=-2
+			else
+				end=$endLine
+			fi
+		done
+
+    begin=1
+
+		while read -r line
+		do
+				singleLine="$line"
+
+        if test $begin -ge $start && test $begin -le $end
+        then
+				  s=$s"$begin: $singleLine \n"
+        fi
+        begin=`expr $begin + 1`
+
+		done <"$fileName"
+		echo -e "$s"
+
+	else
+		echo "File '$fileName' is not readable."
+	fi
+fi
